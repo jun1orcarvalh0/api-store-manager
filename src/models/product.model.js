@@ -16,7 +16,17 @@ const findById = async (id) => {
   return camelize(result);
 };
 
+const insert = async (product) => {
+  const [{ insertId }] = await conn.execute(
+    'INSERT INTO StoreManager.products (name) VALUE (?)',
+    [product.name],
+  );
+
+  return insertId;
+};
+
 module.exports = {
   findAll,
   findById,
+  insert,
 };
