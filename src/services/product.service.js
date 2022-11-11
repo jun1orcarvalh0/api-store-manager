@@ -1,14 +1,14 @@
 const productModel = require('../models/product.model');
 
 const findAll = async () => {
-  const drivers = await productModel.findAll();
-    return { type: null, message: drivers };
+  const products = await productModel.findAll();
+    return { type: null, message: products };
 };
 
 const findById = async (id) => {
-  const driver = await productModel.findById(id);
-  if (driver) {
-    return { type: null, message: driver };
+  const product = await productModel.findById(id);
+  if (product) {
+    return { type: null, message: product };
   }
   return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
 };
