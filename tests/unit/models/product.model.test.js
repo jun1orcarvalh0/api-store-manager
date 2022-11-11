@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const connection = require('../../../src/models/connection');
 const productModel = require('../../../src/models/product.model');
-const productMock = require('./mocks/product.mock');
+const productMock = require('../mocks/product.mock');
 
 describe('Testes de unidade do model de produtos', function () {
   describe('Lista todos os produtos', function () {
@@ -21,7 +21,7 @@ describe('Testes de unidade do model de produtos', function () {
   describe('Recupera o produto pelo id', function () {
     afterEach(sinon.restore);
 
-    it('Recupera todos os produtos com sucesso', async function () {
+    it('Recupera o produto pelo id com sucesso', async function () {
       sinon.stub(connection, 'execute').resolves([productMock.productById])
       const response = await productModel.findById(1);
 
