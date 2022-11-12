@@ -14,7 +14,14 @@ const productById = [{
   name: "Martelo de Thor"
 }];
 
+const newProduct = {
+  id: "42",
+  name: "ProdutoX"
+}
+
+
 module.exports = {
   products,
   productById,
+  newProduct,
 };

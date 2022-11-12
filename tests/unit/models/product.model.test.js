@@ -30,4 +30,17 @@ describe('Testes de unidade do model de produtos', function () {
     });
     
   });
+
+  describe('Cadastrando um novo produto', function () {
+    afterEach(sinon.restore);
+
+    it('Cadastra um novo produto com sucesso', async function () {
+      sinon.stub(connection, 'execute').resolves([{ insertId: 42 }])
+      const response = await productModel.insert(productMock.newProduct);
+
+      // expect(response).to.be.an('object');
+      expect(response).to.be.equal(42);
+    });
+    
+  });
 });

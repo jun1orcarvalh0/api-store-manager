@@ -31,7 +31,7 @@ describe('Product Controller', async function () {
     
   });
 
-   describe('Recupera o produto pelo id', function () {
+  describe('Recupera o produto pelo id', function () {
 
     afterEach(sinon.restore);
 
@@ -65,6 +65,41 @@ describe('Product Controller', async function () {
       expect(res.json).to.have.been.calledWith({ message: 'Product not found'});
     });
     
+   });
+  
+  describe('Cadastrando um novo produto', function () {
+
+    afterEach(sinon.restore);
+
+    it('Cadastra um novo produto com sucesso', async function () {
+      const req = { params: { }, body: { name: "ProdutoX" } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'createProduct').resolves({ type: null, message: productMock.newProduct });
+
+      await productController.createProduct(req, res);
+
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.have.been.calledWith(productMock.newProduct);
+    });
+
+    // it('Erro ao tentar cadastrar um produto sem passar o nome', async function () {
+    //   const req = { params: { }, body: { } };
+    //   const res = {};
+
+    //   res.status = sinon.stub().returns(res);
+    //   res.json = sinon.stub().returns();
+
+    //   sinon.stub(productService, 'createProduct').resolves({ type: null, message: productMock.newProduct });
+
+    //   await productController.createProduct(req, res);
+
+    //   expect(res.status).to.have.been.calledWith(200);
+    //   expect(res.json).to.have.been.calledWith(productMock.newProduct);
+    // });
   });
 
 });

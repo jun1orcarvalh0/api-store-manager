@@ -19,25 +19,48 @@ describe('Product Service', function () {
     
   });
 
-   describe('Recupera o produto pelo id', function () {
+  describe('Recupera o produto pelo id', function () {
 
     afterEach(sinon.restore);
 
     it('Recupera o produto pelo id com sucesso', async function () {
+      sinon.stub(productModel, 'findById').resolves(productMock.productById);
+      const response = await productService.findById();
+
+      expect(response.message).to.be.instanceOf(Array);
+      expect(response.type).to.be.equal(null);
+
+    });
+    
+    it('Ao passar um id invalido retorna um erro', async function () {
       sinon.stub(productModel, 'findById').resolves(undefined);
       const response = await productService.findById(1);
 
       expect(response.message).to.be.equal('Product not found');
       expect(response.type).to.be.equal('PRODUCT_NOT_FOUND');
     });
-    
-    it('Ao passar um id invalido retorna um erro', async function () {
-      sinon.stub(productModel, 'findById').resolves(productMock.productById);
-      const response = await productService.findById();
+  });
 
-      expect(response.message).to.be.instanceOf(Array);
+  describe('Cadastrando um novo produto', function () {
+
+    afterEach(sinon.restore);
+
+    it('Cadastra um novo produto com sucesso', async function () {
+      sinon.stub(productModel, 'insert').resolves([{ insertId: 42 }]);
+      sinon.stub(productModel, 'findById').resolves(productMock.newProduct);
+      const response = await productService.createProduct();
+
+      expect(response.message).to.be.deep.equal(productMock.newProduct);
       expect(response.type).to.be.equal(null);
     });
+    
+    // it('Ao passar um id invalido retorna um erro', async function () {
+    //   sinon.stub(productModel, 'findById').resolves(productMock.productById);
+    //   const response = await productService.findById();
+
+    //   expect(response.message).to.be.instanceOf(Array);
+    //   expect(response.type).to.be.equal(null);
+    // });
   });
   
 });
