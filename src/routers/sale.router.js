@@ -8,6 +8,10 @@ const router = express.Router();
 
 // router.get('/', productController.listProducts);
 
+router.get('/', saleController.listProducts);
+
+router.get('/:id', saleController.getProduct);
+
 router.post('/', validateSaleFields, saleController.createSale);
 
 // saleController.createSale
