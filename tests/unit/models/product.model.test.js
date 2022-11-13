@@ -4,7 +4,7 @@ const connection = require('../../../src/models/connection');
 const productModel = require('../../../src/models/product.model');
 const productMock = require('../mocks/product.mock');
 
-describe('Testes de unidade do model de produtos', function () {
+describe('Product Model', function () {
   describe('Lista todos os produtos', function () {
     afterEach(sinon.restore);
 
