@@ -2,8 +2,6 @@ const saleModel = require('../models/sale.model');
 const productModel = require('../models/product.model');
 const validationProductsFromDB = require('./validations/validationProductsFromDB');
 
-// const validationSaleFromDB = require('./validations/validatonSalesFromDB');
-
 const createSale = async (sales) => {
   const getAllProductsId = await productModel.findAll();
 

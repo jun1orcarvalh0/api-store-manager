@@ -8,6 +8,8 @@ router.get('/', productController.listProducts);
 
 router.post('/', validateName, productController.createProduct);
 
+router.put('/:id', validateName, productController.updateProduct);
+
 router.get('/:id', productController.getProduct);
 
 module.exports = router;
