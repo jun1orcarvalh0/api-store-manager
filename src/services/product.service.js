@@ -14,9 +14,6 @@ const findById = async (id) => {
 };
 
 const createProduct = async (name) => {
-  // const error = validateNewProduct(name);
-  // if (error.type) return error;
-
   const newProductId = await productModel.insert({ name });
   const newProduct = await productModel.findById(newProductId);
 
@@ -37,9 +34,22 @@ const updateProduct = async (name, id) => {
   return { type: null, message: getUpdatedProduct };
 };
 
+const deleteProduct = async (id) => {
+  const checkId = await productModel.findById(id);
+
+  if (!checkId) {
+    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  }
+
+  await productModel.deleteById({ id });
+
+  return { type: null, message: '' };
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
   updateProduct,
+  deleteProduct,
 };
