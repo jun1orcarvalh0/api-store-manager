@@ -53,14 +53,72 @@ describe('Product Service', function () {
       expect(response.message).to.be.deep.equal(productMock.newProduct);
       expect(response.type).to.be.equal(null);
     });
-    
-    // it('Ao passar um id invalido retorna um erro', async function () {
-    //   sinon.stub(productModel, 'findById').resolves(productMock.productById);
-    //   const response = await productService.findById();
-
-    //   expect(response.message).to.be.instanceOf(Array);
-    //   expect(response.type).to.be.equal(null);
-    // });
   });
   
+  describe('Atualizando um produto', function () {
+
+    afterEach(sinon.restore);
+
+    it('Atualiza um produto com sucesso', async function () {
+      const bodyReq = { name: "Martelo do Batman", id: 1 }
+      const { name, id } = bodyReq;
+      sinon.stub(productModel, 'findById')
+        .onCall(0).resolves({ id: 1, name: 'Martelo de Thor' })
+        .onCall(1).resolves({ id: 1, name: 'Martelo do Batman' });
+      sinon.stub(productModel, 'updateById').resolves();
+     
+
+      const response = await productService.updateProduct(name, id);
+
+      expect(response.message).to.be.deep.equal({id: 1, name: 'Martelo do Batman'});
+      expect(response.type).to.be.equal(null);
+    });
+
+    it('Erro ao atualizar um produto que não existe', async function () {
+      const bodyParams = { id: 9999 }
+      const { id } = bodyParams;
+      sinon.stub(productModel, 'findById')
+        .onCall(0).resolves();
+      sinon.stub(productModel, 'updateById').resolves();
+     
+
+      const response = await productService.updateProduct(id);
+
+      expect(response.message).to.be.deep.equal('Product not found');
+      expect(response.type).to.be.equal('PRODUCT_NOT_FOUND');
+    });
+  });
+
+  describe('Deletando um produto', function () {
+
+    afterEach(sinon.restore);
+
+    it('Deleta um produto com sucesso', async function () {
+      const bodyParams = { id: 1 }
+      const { id } = bodyParams;
+      sinon.stub(productModel, 'findById')
+        .onCall(0).resolves({ id: 1, name: 'Martelo de Thor' });
+      sinon.stub(productModel, 'deleteById').resolves();
+     
+
+      const response = await productService.deleteProduct(id);
+
+      expect(response.message).to.be.deep.equal('');
+      expect(response.type).to.be.equal(null);
+    });
+    
+    it('Erro ao deletar um produto que não existe', async function () {
+      const bodyParams = { id: 9999 }
+      const { id } = bodyParams;
+      sinon.stub(productModel, 'findById')
+        .onCall(0).resolves();
+      sinon.stub(productModel, 'deleteById').resolves();
+     
+
+      const response = await productService.deleteProduct(id);
+
+      expect(response.message).to.be.deep.equal('Product not found');
+      expect(response.type).to.be.equal('PRODUCT_NOT_FOUND');
+    });
+  });
 });

@@ -43,4 +43,29 @@ describe('Product Model', function () {
     });
     
   });
+
+  describe('Atualizando um produto existente', function () {
+    afterEach(sinon.restore);
+
+    it('Atualiza um produto com sucesso', async function () {
+      sinon.stub(connection, 'execute').resolves([productMock.resultUpdateById])
+      const response = await productModel.updateById(1);
+
+      // expect(response).to.be.an('object');
+      expect(response.affectedRows).to.be.equal(1);
+    });
+    
+  });
+
+  describe('Deletando um produto existente', function () {
+    afterEach(sinon.restore);
+
+    it('Deleta um produto com sucesso', async function () {
+      sinon.stub(connection, 'execute').resolves([productMock.resultUpdateById])
+      const response = await productModel.deleteById(1);
+
+      expect(response.affectedRows).to.be.equal(1);
+    });
+    
+  });
 });
