@@ -6,13 +6,13 @@ const validateSaleFields = require('../middlewares/validateSaleFields');
 
 const router = express.Router();
 
-// router.get('/', productController.listProducts);
+router.get('/', saleController.listSales);
 
-router.get('/', saleController.listProducts);
-
-router.get('/:id', saleController.getProduct);
+router.get('/:id', saleController.getSale);
 
 router.post('/', validateSaleFields, saleController.createSale);
+
+router.delete('/:id', saleController.deleteSale);
 
 // saleController.createSale
 

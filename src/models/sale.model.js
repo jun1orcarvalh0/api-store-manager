@@ -19,8 +19,18 @@ const findById = async (id) => {
     `SELECT ${selects} ${from} ${asOn} ${order}`,
     [id],
   );
-  console.log(result);
   return camelize(result);
+};
+
+const deleteById = async ({ id }) => {
+  const [result] = await conn.execute(
+    'DELETE FROM StoreManager.sales WHERE id = ?',
+    [id],
+  );
+
+  await conn.execute('DELETE FROM StoreManager.sales_products WHERE sale_id = ?', [id]);
+
+  return result;
 };
 
 const insertSale = async () => {
@@ -49,4 +59,5 @@ module.exports = {
   insertProducts,
   findAll,
   findById,
+  deleteById,
 };
