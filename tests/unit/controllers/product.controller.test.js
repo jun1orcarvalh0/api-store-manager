@@ -65,6 +65,27 @@ describe('Product Controller', async function () {
       expect(res.json).to.have.been.calledWith({ message: 'Product not found'});
     });
     
+  });
+  
+  describe('Recupera o produto pela query', function () {
+
+    afterEach(sinon.restore);
+
+    it('Recupera o produto pela query com sucesso', async function () {
+      const req = { params: { }, body: { }, query: { q: 'Martelo' } };
+      const res = {};
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'findByQuery').resolves({ type: null, message: productMock.productById });
+
+      await productController.getProductByQuery(req, res);
+
+      expect(res.status).to.have.been.calledWith(200);
+      expect(res.json).to.have.been.calledWith(productMock.productById);
+    });
+    
    });
   
   describe('Cadastrando um novo produto', function () {

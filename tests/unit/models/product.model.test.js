@@ -31,6 +31,20 @@ describe('Product Model', function () {
     
   });
 
+  describe('Recupera o produto pela query', function () {
+    afterEach(sinon.restore);
+
+    it('Recupera o produto pela query com sucesso', async function () {
+      sinon.stub(connection, 'execute').resolves([productMock.productById])
+      const response = await productModel.findByQuery('Martelo');
+
+      // expect(response).to.be.an('object');
+      expect(response).to.be.deep.equal(productMock.productById);
+    });
+    
+  });
+
+
   describe('Cadastrando um novo produto', function () {
     afterEach(sinon.restore);
 

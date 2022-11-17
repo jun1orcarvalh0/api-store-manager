@@ -41,6 +41,37 @@ describe('Product Service', function () {
     });
   });
 
+  describe('Recupera os produtos que contem no nome a query', function () {
+
+    afterEach(sinon.restore);
+
+    it('Recupera o produto pela query com sucesso', async function () {
+      sinon.stub(productModel, 'findByQuery').resolves(productMock.productById);
+      const response = await productService.findByQuery('Martelo');
+
+      expect(response.message).to.be.deep.equal(productMock.productById);
+      expect(response.type).to.be.equal(null);
+
+    });
+
+    it('Recupera todos os produtos ao não passar uma query', async function () {
+      sinon.stub(productModel, 'findByQuery').resolves(productMock.products);
+      const response = await productService.findByQuery('Martelo');
+
+      expect(response.message).to.be.instanceOf(Array);
+      expect(response.type).to.be.equal(null);
+
+    });
+    
+    it('Ao passar uma query invalida retorna um array vazio', async function () {
+      sinon.stub(productModel, 'findById').resolves([]);
+      const response = await productService.findByQuery('Flash');
+
+      expect(response.message).to.be.deep.equal([]);
+      expect(response.type).to.be.equal(null);
+    });
+  });
+
   describe('Cadastrando um novo produto', function () {
 
     afterEach(sinon.restore);
