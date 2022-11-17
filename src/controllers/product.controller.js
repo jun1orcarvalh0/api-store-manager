@@ -18,6 +18,13 @@ const getProduct = async (req, res) => {
   return res.status(200).json(message);
 };
 
+const getProductByQuery = async (req, res) => {
+  const { q } = req.query;
+  const { message } = await productService.findByQuery(q);
+
+  return res.status(200).json(message);
+};
+
 const createProduct = async (req, res) => {
   const { name } = req.body;
   // const { type, message } = await productService.createProduct(name);
@@ -55,4 +62,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductByQuery,
 };

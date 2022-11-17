@@ -16,6 +16,14 @@ const findById = async (id) => {
   return camelize(result);
 };
 
+const findByQuery = async (query) => {
+  const [result] = await conn.execute(
+    `SELECT * FROM StoreManager.products WHERE name LIKE '%${query}%'`,
+    [query],
+  );
+  return camelize(result);
+};
+
 const insert = async (product) => {
   const [{ insertId }] = await conn.execute(
     'INSERT INTO StoreManager.products (name) VALUE (?)',
@@ -49,4 +57,5 @@ module.exports = {
   insert,
   updateById,
   deleteById,
+  findByQuery,
 };

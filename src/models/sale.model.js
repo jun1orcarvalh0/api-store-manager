@@ -55,28 +55,22 @@ const insertProducts = async (sales) => {
 };
 
 const updateBySaleId = async (sales, id) => {
-  console.log(sales);
-
   const values = Object.values(snakeize(sales[0]))
     .map((key) => `${key}`);
   
   const values1 = Object.values(snakeize(sales[1]))
     .map((key) => `${key}`);
 
-  const result = await conn.query(
+  await conn.query(
     'UPDATE StoreManager.sales_products SET quantity = ? WHERE product_id = ? AND sale_id = ?',
     [values[1], values[0], id],
   );
 
-  const result1 = await conn.query(
+  await conn.query(
     'UPDATE StoreManager.sales_products SET quantity = ? WHERE product_id = ? AND sale_id = ?',
     [values1[1], values1[0], id],
   );
-
-  console.log(result);
-  console.log(result1);
-
-  return result;
+  return 'Sales were updated';
 };
 
 module.exports = {

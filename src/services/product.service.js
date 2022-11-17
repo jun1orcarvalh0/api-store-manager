@@ -13,6 +13,16 @@ const findById = async (id) => {
   return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
 };
 
+const findByQuery = async (query) => {
+  if (!query) {
+    const sale = await productModel.findAll();
+    return { type: null, message: sale };
+  }
+
+  const saleByQuery = await productModel.findByQuery(query);
+  return { type: null, message: saleByQuery };
+};
+
 const createProduct = async (name) => {
   const newProductId = await productModel.insert({ name });
   const newProduct = await productModel.findById(newProductId);
@@ -52,4 +62,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  findByQuery,
 };

@@ -4,18 +4,19 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/sales/1",
-    "method": "PUT",
+    "url": "http://localhost:3000/products/search?q=aa",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-11-11T18:49:24.648Z",
-    "modified": "2022-11-17T00:45:33.158Z",
+    "modified": "2022-11-17T13:44:47.645Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 25\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 50\n  }\n]",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "q",
+        "value": "aa",
+        "isPath": false
+      }
+    ],
     "tests": []
   }
 ]
