@@ -55,8 +55,8 @@ describe('Product Service', function () {
     });
 
     it('Recupera todos os produtos ao não passar uma query', async function () {
-      sinon.stub(productModel, 'findByQuery').resolves(productMock.products);
-      const response = await productService.findByQuery('Martelo');
+      sinon.stub(productModel, 'findById').resolves(productMock.products);
+      const response = await productService.findByQuery();
 
       expect(response.message).to.be.instanceOf(Array);
       expect(response.type).to.be.equal(null);
