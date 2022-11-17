@@ -8,9 +8,11 @@ const router = express.Router();
 
 router.get('/', saleController.listSales);
 
+router.post('/', validateSaleFields, saleController.createSale);
+
 router.get('/:id', saleController.getSale);
 
-router.post('/', validateSaleFields, saleController.createSale);
+router.put('/:id', validateSaleFields, saleController.updateSale);
 
 router.delete('/:id', saleController.deleteSale);
 

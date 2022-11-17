@@ -32,12 +32,30 @@ const findById = async (id) => {
   return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
 };
 
+const updateSale = async (saleUpdated, id) => {
+  const getAllProductsId = await productModel.findAll();
+
+  const error = await validationProductsFromDB(saleUpdated, getAllProductsId);
+
+  if (error.type) return error;
+
+  const checkId = await findById(id);
+
+  if (checkId.type) {
+    return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
+  }
+
+  await saleModel.updateBySaleId(saleUpdated, id);
+
+  const updatedSale = { saleId: id, itemsUpdated: saleUpdated };
+
+  return { type: null, message: updatedSale };
+};
+
 const deleteSale = async (id) => {
-  const checkId = await saleModel.findById(id);
+  const checkId = await findById(id);
 
-  console.log(checkId);
-
-  if (checkId.length < 1) {
+  if (checkId.type) {
     return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
   }
 
@@ -51,4 +69,5 @@ module.exports = {
   findAll,
   findById,
   deleteSale,
+  updateSale,
 };
