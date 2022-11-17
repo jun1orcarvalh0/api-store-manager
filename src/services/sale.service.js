@@ -10,7 +10,9 @@ const createSale = async (sales) => {
    if (error.type) return error;
 
   const saleId = await saleModel.insertSale();
+
   const saleProductsWithId = sales.reduce((p, c) => [{ saleId, ...p }, { saleId, ...c }]);
+
   await saleModel.insertProducts(saleProductsWithId);
 
   const newSale = { id: saleId, itemsSold: sales };

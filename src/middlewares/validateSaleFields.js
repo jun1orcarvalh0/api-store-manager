@@ -1,8 +1,6 @@
 module.exports = (req, res, next) => {
   const saleData = req.body;
 
-  console.log(saleData);
-
   const validateProductId = saleData.every((sale) => typeof sale.productId === 'number');
   
   if (!validateProductId) { return res.status(400).json({ message: '"productId" is required' }); }
