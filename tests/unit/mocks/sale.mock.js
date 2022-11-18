@@ -66,6 +66,11 @@ const saleDeletedReturn = {
   warningStatus: 0
 };
 
+const saleModelFindByIdMock = {
+  type: null,
+  message: [{ productId: 1, quantity: 5, date: '2022-11-17T21:26:45.000Z' },{ productId: 2, quantity: 10, date: '2022-11-17T21:26:45.000Z' }]
+}
+
 const newSaleModel = [
   { saleId: 42, productId: 1, quantity: 1 },
   { saleId: 42, productId: 2, quantity: 5 }];
@@ -77,4 +82,6 @@ module.exports = {
   saleUpdated,
   saleProducts,
   saleDeletedReturn,
+  saleModelFindByIdMock,
+  saleUpdated,
 }
