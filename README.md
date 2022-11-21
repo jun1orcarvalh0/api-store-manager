@@ -32,7 +32,7 @@ Para rodar está aplicação é necessário ter **Git**, **Docker** e o **Docker
 
 ### 1 - Clone o repositório
 ```sh
-git clone git@github.com:guillepinho/api-store-manager.git
+git clone git@github.com:jun1orcarvalh0/api-store-manager.git
 ```
 
 ### 2 - Rode os containers executando o comando abaixo na pasta raiz da aplicação
