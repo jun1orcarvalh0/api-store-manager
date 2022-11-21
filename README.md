@@ -88,10 +88,10 @@ npm run test:mocha
 ### Rotas - Sales
 
 - GET <code>/sales</code> : Lista todos as vendas da loja.
-- GET <code>/sales/:IdDoVenda</code> : Lista a venda com o ID desejado.
+- GET <code>/sales/:IdDaVenda</code> : Lista a venda com o ID desejado.
 - POST <code>/sales</code> : Cria uma nova venda, de acordo com o body passado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
-- PUT <code>/sales/:IdDoVenda</code> : Altera uma venda existente com o ID informado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
-- DELETE <code>/sales/:IdDoVenda</code> : Deleta uma venda com o ID desejado.
+- PUT <code>/sales/:IdDaVenda</code> : Altera uma venda existente com o ID informado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
+- DELETE <code>/sales/:IdDaVenda</code> : Deleta uma venda com o ID desejado.
 
 ### Exemplos de Body
 
