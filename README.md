@@ -79,19 +79,19 @@ npm run test:mocha
 ### Rotas - Products
 
 - GET <code>/products</code> : Lista todos os produtos da loja.
-- GET <code>/products/:IdDeProduto</code> : Lista o produto com o ID desejado.
+- GET <code>/products/:IdDoProduto</code> : Lista o produto com o ID desejado.
 - GET <code>/products/search?q=TERMO_DE_BUSCA</code> : Lista os produtos com o nome inserido como termo de busca.
 - POST <code>/products</code> : Cria um novo produto, de acordo com o body passado. Deve ser informada a propriedade "name" e o nome do produto.
-- PUT <code>/products/:IdDeProduto</code> : Altera o nome de um produto existente com o ID informado. Deve ser informada a propriedade "name" e o nome do produto.
+- PUT <code>/products/:IdDoProduto</code> : Altera o nome de um produto existente com o ID informado. Deve ser informada a propriedade "name" e o nome do produto.
 - DELETE <code>/products/:IdDeProduto</code> : Deleta o produto com o ID desejado.
 
 ### Rotas - Sales
 
 - GET <code>/sales</code> : Lista todos as vendas da loja.
-- GET <code>/sales/:IdDeVenda</code> : Lista a venda com o ID desejado.
+- GET <code>/sales/:IdDoVenda</code> : Lista a venda com o ID desejado.
 - POST <code>/sales</code> : Cria uma nova venda, de acordo com o body passado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
-- PUT <code>/sales/:IdDeVenda</code> : Altera uma venda existente com o ID informado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
-- DELETE <code>/sales/:IdDeVenda</code> : Deleta uma venda com o ID desejado.
+- PUT <code>/sales/:IdDoVenda</code> : Altera uma venda existente com o ID informado. Deve ser passado um array de objetos, cada um com as propriedades "productId" e "quantity".
+- DELETE <code>/sales/:IdDoVenda</code> : Deleta uma venda com o ID desejado.
 
 ### Exemplos de Body
 
