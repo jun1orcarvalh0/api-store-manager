@@ -118,6 +118,6 @@ npm run test:mocha
 
 ## :test_tube: Cobertura de Testes
 
-Foram desenvolvidos 56 testes que cobrem 100% da aplicação:
+Foram desenvolvidos 50 testes que cobrem 100% da aplicação:
 
 ![Test Coverage - Cobertura dos testes](./test-coverage.png)
