@@ -11,7 +11,6 @@ Tivemos que criar uma API RESTful usando a arquitetura MSC (Model-Service-Contro
 ### Desafios
 * Criar uma aplicação Express.js
 * Criar uma API RESTful usando arquitetura MSC (Model-Service-Controller)
-* Validar dados das requisições com a biblioteca Joi
 * Implementar testes unitários com Mocha, Chai e Sinon
 
 ### Tecnologias
@@ -19,7 +18,6 @@ Tivemos que criar uma API RESTful usando a arquitetura MSC (Model-Service-Contro
 * Express.js
 * Express Rescue
 * DotEnv
-* Joi
 * Mocha.js
 * Chai.js
 * Sinon.js
