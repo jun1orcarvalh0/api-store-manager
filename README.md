@@ -2,7 +2,7 @@
 
 ## :page_with_curl: Sobre
 
-Projeto Node.js e Express.js desenvolvido no curso de Desenvolvimento Web da Trybe. Fui aprovado com 100% dos requisitos obrigatórios e opcionais atingidos.
+Projeto Node.js e Express.js desenvolvido no curso de Desenvolvimento Web da Trybe.
 
 Tivemos que criar uma API RESTful usando a arquitetura MSC (Model-Service-Controller) e implementar testes unitários com Mocha, Chai e Sinon.
 
