@@ -1,4 +1,4 @@
-# :department_store: Store Manager
+# :department_store: API de Gerenciamento de Loja
 
 ## :page_with_curl: Sobre
 
