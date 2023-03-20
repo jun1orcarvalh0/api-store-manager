@@ -1,5 +1,7 @@
 # :department_store: API de Gerenciamento de Loja
 
+[Leia em português!](./README_pt-br.md)
+
 ## :page_with_curl: About
 
 This is a CRUD API for a store manager. It is built using NodeJS, Express and MySQL. I have used the MSC (Models, Services, Controllers) architecture for this project and Docker for containerization. Development was done using TDD (Test Driven Development) and the tests were written using Mocha, chai and sinon.
