@@ -1,5 +1,7 @@
 # :department_store: API de Gerenciamento de Loja
 
+[Leia em inglês!](./README.md)
+
 ## :page_with_curl: Sobre
 
 Projeto Node.js e Express.js desenvolvido no curso de Desenvolvimento Web da Trybe.
