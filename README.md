@@ -4,7 +4,7 @@
 
 ## :page_with_curl: About
 
-This is a CRUD API for a store manager. It is built using NodeJS, Express and MySQL. I have used the MSC (Models, Services, Controllers) architecture for this project and Docker for containerization. Development was done using TDD (Test Driven Development) and the tests were written using Mocha, chai and sinon.
+This is a CRUD API for a store manager. It is built using NodeJS, Express and MySQL. I have used the MSC (Models, Services, Controllers) architecture for this project and Docker for containerization. Development was done using TDD (Test Driven Development) and the tests were written using Mocha, Chai and Sinon.
 
 You can Create, Read, Update and Delete (CRUD) products and sales records.
 
