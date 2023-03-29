@@ -4,9 +4,9 @@
 
 ## :page_with_curl: Sobre
 
-Projeto Node.js e Express.js desenvolvido no curso de Desenvolvimento Web da Trybe.
+Esta é uma API em CRUD para o gerenciamento de uma loja. Ele é construído usando NodeJS, Express e MySQL. Eu usei a arquitetura MSC (Models, Services, Controllers) para este projeto e o Docker para conteinerização. O desenvolvimento foi feito usando TDD (Test Driven Development) e os testes foram escritos usando Mocha, Chai e Sinon.
 
-Tivemos que criar uma API RESTful usando a arquitetura MSC (Model-Service-Controller) e implementar testes unitários com Mocha, Chai e Sinon.
+Você pode criar, ler, atualizar e excluir (CRUD) produtos e registros de vendas.
 
 ## :man_technologist: Tecnologias
 
