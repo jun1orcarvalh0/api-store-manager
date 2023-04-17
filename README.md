@@ -1,4 +1,4 @@
-# :department_store: API de Gerenciamento de Loja
+# :department_store: Store Manager API
 
 [Leia em português!](./README_pt-br.md)
 
